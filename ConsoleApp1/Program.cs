@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Calculadora
 {
@@ -10,117 +11,62 @@ namespace Calculadora
         {
             int result;
             result = a + b;
-            Console.WriteLine($"A soma dos dois números é: {result}\nPress '0' to back to painel main");
+            Console.WriteLine($"A soma dos dois números é: {result}\nPress any key to back to main painel");
             string volta_menu = Console.ReadLine();
-            int confirm_volta_menu = Convert.ToInt32(volta_menu);
 
-            if (confirm_volta_menu == 0)
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu,"[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
-            }
-            else
-            {
-                do
-                {
-                    Console.WriteLine("Warning!! You should Press '0' to back to painel main.");
-                    string tenta_volta_menu = Console.ReadLine();
-                    int confirm_tenta_volta_menu = Convert.ToInt32(tenta_volta_menu);
 
-                    if (confirm_tenta_volta_menu == 0)
-                    {
-                        Main();
-
-                    }
-                } while (confirm_volta_menu != 0);
             }
 
         }
-
         static void Divisao(int a, int b)
         {
             int result;
             result = a / b;
-            Console.WriteLine($"A soma dos dois números é: {result}\nPress '0' to back to painel main");
+            Console.WriteLine($"A divisao dos dois números é: {result}\nPress '0' to back to painel main");
             string volta_menu = Console.ReadLine();
             int confirm_volta_menu = Convert.ToInt32(volta_menu);
 
-            if (confirm_volta_menu == 0)
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
-            }
-            else
-            {
-                do
-                {
-                    Console.WriteLine("Warning!! You should Press '0' to back to painel main.");
-                    string tenta_volta_menu = Console.ReadLine();
-                    int confirm_tenta_volta_menu = Convert.ToInt32(tenta_volta_menu);
 
-                    if (confirm_tenta_volta_menu == 0)
-                    {
-                        Main();
-
-                    }
-                } while (confirm_volta_menu != 0);
             }
+
 
         }
         static void Subtracao(int a, int b)
         {
             int result;
             result = a - b;
-            Console.WriteLine($"A soma dos dois números é: {result}\nPress '0' to back to painel main");
+            Console.WriteLine($"A subtracao dos dois números é: {result}\nPress '0' to back to painel main");
             string volta_menu = Console.ReadLine();
             int confirm_volta_menu = Convert.ToInt32(volta_menu);
 
-            if (confirm_volta_menu == 0)
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
-            }
-            else
-            {
-                do
-                {
-                    Console.WriteLine("Warning!! You should Press '0' to back to painel main.");
-                    string tenta_volta_menu = Console.ReadLine();
-                    int confirm_tenta_volta_menu = Convert.ToInt32(tenta_volta_menu);
 
-                    if (confirm_tenta_volta_menu == 0)
-                    {
-                        Main();
-
-                    }
-                } while (confirm_volta_menu != 0);
             }
+
 
         }
         static void Potencia(int a, int b)
         {
             double result;
             result = Math.Pow(a,b);
-            Console.WriteLine($"A soma dos dois números é: {result}\nPress '0' to back to painel main");
+            Console.WriteLine($"A potencia dos dois números é: {result}\nPress '0' to back to painel main");
             string volta_menu = Console.ReadLine();
             int confirm_volta_menu = Convert.ToInt32(volta_menu);
 
-            if (confirm_volta_menu == 0)
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
-            }
-            else
-            {
-                do
-                {
-                    Console.WriteLine("Warning!! You should Press '0' to back to painel main.");
-                    string tenta_volta_menu = Console.ReadLine();
-                    int confirm_tenta_volta_menu = Convert.ToInt32(tenta_volta_menu);
 
-                    if (confirm_tenta_volta_menu == 0)
-                    {
-                        Main();
-
-                    }
-                } while (confirm_volta_menu != 0);
             }
+
 
         }
         static void Main()
@@ -138,7 +84,7 @@ namespace Calculadora
             Console.WriteLine("O valor introduzido " + value_calc);
 
             // se o valor for caracter ou nulo, vai voltar para o menu. 
-            if (string.IsNullOrEmpty(value_calc) || value_calc.Contains("A"))   
+            if (string.IsNullOrEmpty(value_calc) || Regex.IsMatch(value_calc, "[a-zA-Z]"))   
             {
 
                 Console.WriteLine("Please, press the options main menu!!");
