@@ -21,7 +21,7 @@ namespace Calculadora
             string value_calc = Console.ReadLine();
 
             // se o valor for caracter ou nulo ou maior que 5, vai voltar para o menu 
-            if (string.IsNullOrEmpty(value_calc) || [GeneratedRegex(value_calc, "[a-zA-Z]")] || value_calc.Length> 1)   
+            if (string.IsNullOrEmpty(value_calc) || Regex.Match(value_calc, "[a-zA-Z]") || value_calc.Length> 1)   
             {
 
                 Console.WriteLine("Please, press the options main menu!!");
@@ -125,7 +125,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || [GeneratedRegex(volta_menu, "[1-99999999999999999]")] || string.IsNullOrEmpty(volta_menu))
+            if (Regex.Match(volta_menu, "[a-zA-Z]") || Regex.Match(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -141,7 +141,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || [GeneratedRegex(volta_menu, "[1-99999999999999999]")] || string.IsNullOrEmpty(volta_menu))
+            if (Regex.Match(volta_menu, "[a-zA-Z]") || Regex.Match(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -158,7 +158,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || [GeneratedRegex(volta_menu, "[1-99999999999999999]")] || string.IsNullOrEmpty(volta_menu))
+            if (Regex.Match(volta_menu, "[a-zA-Z]") || Regex.Match(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -175,7 +175,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || [GeneratedRegex(volta_menu, "[1-99999999999999999]")] || string.IsNullOrEmpty(volta_menu))
+            if (Regex.Match(volta_menu, "[a-zA-Z]") || Regex.Match(volta_menu, "[1-99999999999999999]") || string.NullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -185,6 +185,3 @@ namespace Calculadora
     }
 
 }
-
-
-
