@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
+
 namespace Calculadora
 {
     public class Program
@@ -125,7 +126,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") && Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -141,7 +142,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]", RegexOptions.IgnoreCase) || string.IsNullOrEmpty(volta_menu))
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") && Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
                 
             {
                 Main();
@@ -159,7 +160,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") && Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -176,7 +177,7 @@ namespace Calculadora
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
              * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") || Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
+            if (Regex.IsMatch(volta_menu, "[a-zA-Z]") && Regex.IsMatch(volta_menu, "[1-99999999999999999]") || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
