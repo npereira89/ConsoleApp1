@@ -36,83 +36,84 @@ namespace Calculadora
 
                 int opcao_calc = Convert.ToInt32(value_calc);
 
-                if (opcao_calc >= 1 && opcao_calc <= 5)
+                if (opcao_calc < 1 || opcao_calc > 5)
                 {
-                    if (opcao_calc == 1)  /* SOMA */
-                    {
-                        Console.Clear();
+                    return;
+                }
+                if (opcao_calc == 1)  /* SOMA */
+                {
+                    Console.Clear();
 
-                        Console.WriteLine("Insere o primeiro valor");
-                        string valor1 = Console.ReadLine();
-                        int confirm_valor1 = Convert.ToInt32(valor1);
+                    Console.WriteLine("Insere o primeiro valor");
+                    string valor1 = Console.ReadLine();
+                    int confirm_valor1 = Convert.ToInt32(valor1);
 
-                        Console.WriteLine("Insere o segundo valor");
-                        string valor2 = Console.ReadLine();
-                        int confirm_valor2 = Convert.ToInt32(valor2);
+                    Console.WriteLine("Insere o segundo valor");
+                    string valor2 = Console.ReadLine();
+                    int confirm_valor2 = Convert.ToInt32(valor2);
 
-                        Program.Soma(confirm_valor1, confirm_valor2);
+                    Program.Soma(confirm_valor1, confirm_valor2);
 
-                    }
+                }
 
-                    if (opcao_calc == 2) /* DIVISÂO */
-                    {
-                        Console.Clear();
+                if (opcao_calc == 2) /* DIVISÂO */
+                {
+                    Console.Clear();
 
-                        Console.WriteLine("Insere o primeiro valor");
-                        string valor1 = Console.ReadLine();
-                        int confirm_valor1 = Convert.ToInt32(valor1);
+                    Console.WriteLine("Insere o primeiro valor");
+                    string valor1 = Console.ReadLine();
+                    int confirm_valor1 = Convert.ToInt32(valor1);
 
-                        Console.WriteLine("Insere o segundo valor");
-                        string valor2 = Console.ReadLine();
-                        int confirm_valor2 = Convert.ToInt32(valor2);
+                    Console.WriteLine("Insere o segundo valor");
+                    string valor2 = Console.ReadLine();
+                    int confirm_valor2 = Convert.ToInt32(valor2);
 
-                        Program.Divisao(confirm_valor1, confirm_valor2);
+                    Program.Divisao(confirm_valor1, confirm_valor2);
 
-                    }
+                }
 
-                    if (opcao_calc == 3) /* SUBTRACAO */
-                    {
-                        Console.Clear();
+                if (opcao_calc == 3) /* SUBTRACAO */
+                {
+                    Console.Clear();
 
-                        Console.WriteLine("Insere o primeiro valor");
-                        string valor1 = Console.ReadLine();
-                        int confirm_valor1 = Convert.ToInt32(valor1);
+                    Console.WriteLine("Insere o primeiro valor");
+                    string valor1 = Console.ReadLine();
+                    int confirm_valor1 = Convert.ToInt32(valor1);
 
-                        Console.WriteLine("Insere o segundo valor");
-                        string valor2 = Console.ReadLine();
-                        int confirm_valor2 = Convert.ToInt32(valor2);
+                    Console.WriteLine("Insere o segundo valor");
+                    string valor2 = Console.ReadLine();
+                    int confirm_valor2 = Convert.ToInt32(valor2);
 
-                        Program.Subtracao(confirm_valor1, confirm_valor2);
+                    Program.Subtracao(confirm_valor1, confirm_valor2);
 
-                    }
+                }
 
-                    if (opcao_calc == 4) /* POTENCIA */
-                    {
-                        Console.Clear();
+                if (opcao_calc == 4) /* POTENCIA */
+                {
+                    Console.Clear();
 
-                        Console.WriteLine("Insere o primeiro valor");
-                        string valor1 = Console.ReadLine();
-                        int confirm_valor1 = Convert.ToInt32(valor1);
+                    Console.WriteLine("Insere o primeiro valor");
+                    string valor1 = Console.ReadLine();
+                    int confirm_valor1 = Convert.ToInt32(valor1);
 
-                        Console.WriteLine("Insere o segundo valor");
-                        string valor2 = Console.ReadLine();
-                        int confirm_valor2 = Convert.ToInt32(valor2);
+                    Console.WriteLine("Insere o segundo valor");
+                    string valor2 = Console.ReadLine();
+                    int confirm_valor2 = Convert.ToInt32(valor2);
 
-                        Program.Potencia(confirm_valor1, confirm_valor2);
+                    Program.Potencia(confirm_valor1, confirm_valor2);
 
-                    }
+                }
 
-                    if (opcao_calc == 5) /* SAIR */
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Press to close....");
-                        Console.ReadKey();
-                        System.Environment.Exit('0');
+                if (opcao_calc == 5) /* SAIR */
+                {
+                    Console.Clear();
+                    Console.WriteLine("Press to close....");
+                    Console.ReadKey();
+                    System.Environment.Exit('0');
 
-                    }
                 }
             }
-        
+
         }
 
 
