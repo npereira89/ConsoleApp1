@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Calculadora
 {
@@ -38,6 +39,7 @@ namespace Calculadora
 
                 if (opcao_calc < 1 || opcao_calc > 5)
                 {
+                    Program.Main();
                     return;
                 }
                 if (opcao_calc == 1)  /* SOMA */
@@ -121,7 +123,7 @@ namespace Calculadora
         {
             int result;
             result = a + b;
-            Console.WriteLine("A soma dos dois números é: " + result + "\n Press any key to back to main painel");
+            Console.WriteLine("A soma dos dois números é: " + result + "\nPress '0' to exit or 'ENTER' back to painel main");
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
@@ -137,7 +139,7 @@ namespace Calculadora
         {
             int result;
             result = a / b;
-            Console.WriteLine("A divisao dos dois números é: " + result + "\n Press '0' to back to painel main");
+            Console.WriteLine("A divisao dos dois números é: " + result + "\nPress '0' to exit or 'ENTER' back to painel main");
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
@@ -154,7 +156,7 @@ namespace Calculadora
         {
             int result;
             result = a - b;
-            Console.WriteLine("A subtracao dos dois números é:" + result + "\n Press '0' to back to painel main");
+            Console.WriteLine("A subtracao dos dois números é:" + result + "\nPress '0' to exit or 'ENTER' back to painel main");
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
@@ -171,7 +173,7 @@ namespace Calculadora
         {
             double result;
             result = Math.Pow(a, b);
-            Console.WriteLine("A potencia dos dois números é:" + result + "\nPress '0' to back to painel main");
+            Console.WriteLine("A potencia dos dois números é:" + result + "\nPress '0' to exit or 'ENTER' back to painel main");
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
