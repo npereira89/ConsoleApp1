@@ -2,7 +2,7 @@ name: "[SonarCloud] Check Issues"
 on:
   push:
     branches:
-      - master
+      - qual
 # pull_request:
 #   types: [opened, synchronize, reopened]
 jobs:
