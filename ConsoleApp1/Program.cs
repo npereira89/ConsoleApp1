@@ -5,10 +5,12 @@ using System.Threading;
 
 namespace Calculadora
 {
-    public class Program
+    public static class Program
     {
+        private static string valid_char; // Declara variaveis constantes para validação de caracteres e numeros
+        private static string valid_number;
 
-        static void Main()
+        public static void Main()
         {
             Console.Clear();
 
@@ -21,39 +23,39 @@ namespace Calculadora
 
             string value_calc = Console.ReadLine();
 
-            // se o valor for caracter ou nulo ou maior que 5, vai voltar para o menu 
-            if (string.IsNullOrEmpty(value_calc) && Regex.IsMatch(value_calc, "[a-zA-Z]", RegexOptions.NonBacktracking) || value_calc.Length> 1)  
+            // valida primeiro se o valor for caracter ou nulo. Caso verdadeiro, vai retornar para o menu 
+            if (string.IsNullOrEmpty(value_calc) || Regex.IsMatch(value_calc, "[a-zA-Z]", RegexOptions.NonBacktracking))
             {
+                Program.Main();
+            }
 
-                Console.WriteLine("Please, press the options main menu!!");
-                Main();
+            int opcao_calc = Convert.ToInt32(value_calc);
 
 
+            valid_char = "[a-zA-Z]";
+            valid_number = "[1-99999999999999999]";          
+
+            // se o valor é maior que 5 ou menor que 1, vai voltar para o menu 
+            if (opcao_calc < 1 || opcao_calc > 5)
+            {
+                Program.Main();
             }
             else
             {
-                // se o valor for numerico, converte para Int32 e faz os calculos corretos, consoante
-                //cada um das opções dos menu que tem para efetuar 
+                // caso o valor esteja dentro dos requisitos mencionados no menu vai solicitar as operações.
+                Console.Clear();               
 
-                int opcao_calc = Convert.ToInt32(value_calc);
+                Console.WriteLine("Insere o primeiro valor");
+                string valor1 = Console.ReadLine();
+                int confirm_valor1 = Convert.ToInt32(valor1);
 
-                if (opcao_calc < 1 || opcao_calc > 5)
-                {
-                    Program.Main();
-                    return;
-                }
+                Console.WriteLine("Insere o segundo valor");
+                string valor2 = Console.ReadLine();
+                int confirm_valor2 = Convert.ToInt32(valor2);
+
                 if (opcao_calc == 1)  /* SOMA */
                 {
                     Console.Clear();
-
-                    Console.WriteLine("Insere o primeiro valor");
-                    string valor1 = Console.ReadLine();
-                    int confirm_valor1 = Convert.ToInt32(valor1);
-
-                    Console.WriteLine("Insere o segundo valor");
-                    string valor2 = Console.ReadLine();
-                    int confirm_valor2 = Convert.ToInt32(valor2);
-
                     Program.Soma(confirm_valor1, confirm_valor2);
 
                 }
@@ -61,15 +63,6 @@ namespace Calculadora
                 if (opcao_calc == 2) /* DIVISÂO */
                 {
                     Console.Clear();
-
-                    Console.WriteLine("Insere o primeiro valor");
-                    string valor1 = Console.ReadLine();
-                    int confirm_valor1 = Convert.ToInt32(valor1);
-
-                    Console.WriteLine("Insere o segundo valor");
-                    string valor2 = Console.ReadLine();
-                    int confirm_valor2 = Convert.ToInt32(valor2);
-
                     Program.Divisao(confirm_valor1, confirm_valor2);
 
                 }
@@ -77,15 +70,6 @@ namespace Calculadora
                 if (opcao_calc == 3) /* SUBTRACAO */
                 {
                     Console.Clear();
-
-                    Console.WriteLine("Insere o primeiro valor");
-                    string valor1 = Console.ReadLine();
-                    int confirm_valor1 = Convert.ToInt32(valor1);
-
-                    Console.WriteLine("Insere o segundo valor");
-                    string valor2 = Console.ReadLine();
-                    int confirm_valor2 = Convert.ToInt32(valor2);
-
                     Program.Subtracao(confirm_valor1, confirm_valor2);
 
                 }
@@ -93,15 +77,6 @@ namespace Calculadora
                 if (opcao_calc == 4) /* POTENCIA */
                 {
                     Console.Clear();
-
-                    Console.WriteLine("Insere o primeiro valor");
-                    string valor1 = Console.ReadLine();
-                    int confirm_valor1 = Convert.ToInt32(valor1);
-
-                    Console.WriteLine("Insere o segundo valor");
-                    string valor2 = Console.ReadLine();
-                    int confirm_valor2 = Convert.ToInt32(valor2);
-
                     Program.Potencia(confirm_valor1, confirm_valor2);
 
                 }
@@ -114,21 +89,20 @@ namespace Calculadora
                     System.Environment.Exit('0');
 
                 }
-            }
+            } 
 
         }
-
 
         static void Soma(int a, int b)  /* efetua os calculos de soma */
         {
             int result;
             result = a + b;
-            Console.WriteLine("A soma dos dois números é: " + result + "\nPress '0' to exit or 'ENTER' back to painel main");
+            Console.WriteLine("A soma dos dois números é: " + result );
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
-             * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]", RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, "[1-99999999999999999]", RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
+             * Valida também se for introduzido um "enter" ou "escape" */
+            if (Regex.IsMatch(volta_menu, valid_char, RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, valid_number, RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -139,12 +113,12 @@ namespace Calculadora
         {
             int result;
             result = a / b;
-            Console.WriteLine("A divisao dos dois números é: " + result + "\nPress '0' to exit or 'ENTER' back to painel main");
+            Console.WriteLine("A divisao dos dois números é: " + result );
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
-             * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]", RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, "[1-99999999999999999]", RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
+             * Valida também se for introduzido um "enter" ou "escape" */
+            if (Regex.IsMatch(volta_menu, valid_char, RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, valid_number, RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -156,12 +130,12 @@ namespace Calculadora
         {
             int result;
             result = a - b;
-            Console.WriteLine("A subtracao dos dois números é:" + result + "\nPress '0' to exit or 'ENTER' back to painel main");
+            Console.WriteLine("A subtracao dos dois números é:" + result );
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
-             * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]", RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, "[1-99999999999999999]", RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
+             * Valida também se for introduzido um "enter" ou "escape" */
+            if (Regex.IsMatch(volta_menu, valid_char, RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, valid_number, RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
@@ -173,12 +147,12 @@ namespace Calculadora
         {
             double result;
             result = Math.Pow(a, b);
-            Console.WriteLine("A potencia dos dois números é:" + result + "\nPress '0' to exit or 'ENTER' back to painel main");
+            Console.WriteLine("A potencia dos dois números é:" + result );
             string volta_menu = Console.ReadLine();
 
             /* Faz validação se é introduzido valor caracter ou numerico ou se o campo é nulo ou vazio e se foi introduzido um campo valor.
-             * Valida também se for introduzido um "emter" ou "escape" */
-            if (Regex.IsMatch(volta_menu, "[a-zA-Z]", RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, "[1-99999999999999999]", RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
+             * Valida também se for introduzido um "enter" ou "escape" */
+            if (Regex.IsMatch(volta_menu, valid_char, RegexOptions.NonBacktracking) && Regex.IsMatch(volta_menu, valid_number, RegexOptions.NonBacktracking) || string.IsNullOrEmpty(volta_menu))
             {
                 Main();
 
